@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="icon" href="Images/Favicon.png">
+    <title>Ophelia Lodgings</title>
+</head>
+<body>
+    <div class="fade-in">
+        <header class="header">
+            <div class="logo">
+              <img src="Images/Logo.png" alt="Company Logo">
+            </div>
+            <div class="social-links">
+              <a href="https://www.facebook.com" target="_blank"><img src="Images/Facebook.png" alt="Facebook"></a>
+              <a href="https://www.instagram.com" target="_blank"><img src="Images/Instagram.png" alt="Instagram"></a>
+              <a href="https://www.linkedin.com" target="_blank"><img src="Images/Linkedin.png" alt="Linkedin"></a>
+              <a href="https://wa.me/+94722155738" target="_blank"><img src="Images/Whatsapp.png" alt="WhatsApp"></a>
+            </div>
+        </header>
+    </div>
+
+    <div class="fade-in">
+      <section class="hero">
+        <div class="hero-content">
+            <h1>HOTEL BOOKING</h1>
+        </div>
+        <div class="gradient-overlay"></div>
+        <img src="Images/Hero.jpg" alt="Ophelia Lodgings" class="hero-image">
+      </section>
+    </div>
+    <br>
+    <div class="fade-in">
+      <form id="bookingForm" autocomplete="on">
+
+        <fieldset aria-labelledby="hotelBookingHeading">
+          <legend id="hotelBookingHeading">Hotel Booking</legend>
+    
+          <label for="roomType">Room Type:</label>
+          <select id="roomType" name="roomType">
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="triple">Triple</option>
+          </select>
+    
+          <label for="numRooms">Number of Rooms:</label>
+          <input type="number" id="numRooms" name="numRooms" min="1" value="1">
+    
+          <label for="numAdults">Number of Adults:</label>
+          <input type="number" id="numAdults" name="numAdults" min="1" value="1">
+    
+          <label for="numChildren">Number of Children:</label>
+          <input type="number" id="numChildren" name="numChildren" min="0" value="0">
+    
+          <label for="checkInDate">Check-in Date:</label>
+          <input type="date" id="checkInDate" name="checkInDate">
+    
+          <label for="checkOutDate">Check-out Date:</label>
+          <input type="date" id="checkOutDate" name="checkOutDate">
+    
+          <label for="extraRequirements">Extra Requirements:</label>
+          <br>
+          <label for="wifi">WiFi</label>
+          <input type="checkbox" id="wifi" name="wifi">
+          <label for="poolView">Pool View</label>
+          <input type="checkbox" id="poolView" name="poolView">
+          <label for="gardenView">Garden View</label>
+          <input type="checkbox" id="gardenView" name="gardenView">
+          <label for="extraBed">Extra Bed</label>
+          <input type="checkbox" id="extraBed" name="extraBed">
+    
+          <label for="extraBeds">Number of Extra Beds:</label>
+          <input type="number" id="extraBeds" name="extraBeds" min="0" value="0">
+    
+          <section id="hotelDetails"></section>
+    
+        </fieldset>
+        <br>
+        <fieldset aria-labelledby="adventureBookingHeading">
+          <legend id="adventureBookingHeading">Adventure Booking</legend>
+    
+          <label for="adventureType">Adventure Type:</label>
+          <select id="adventureType" name="adventureType">
+            <option value="local">Local</option>
+            <option value="foreigner">Foreigner</option>
+          </select>
+    
+          <label for="numAdultsAdventure">Number of Adults:</label>
+          <input type="number" id="numAdultsAdventure" name="numAdultsAdventure" min="1" value="1">
+    
+          <label for="numChildrenAdventure">Number of Children:</label>
+          <input type="number" id="numChildrenAdventure" name="numChildrenAdventure" min="0" value="0">
+    
+          <label for="needGuide">Do you need a Guide?</label>
+          <input type="checkbox" id="needGuide" name="needGuide">
+    
+          <label for="guideForAdults">Guide For Adults:</label>
+          <input type="checkbox" id="guideForAdults" name="guideForAdults">
+    
+          <label for="guideForKids">Guide For Kids:</label>
+          <input type="checkbox" id="guideForKids" name="guideForKids">
+    
+          <section id="adventureDetails"></section>
+    
+        </fieldset>
+        <br>
+        <fieldset aria-labelledby="additionalOptionsHeading">
+          <legend id="additionalOptionsHeading">Additional Options</legend>
+    
+          <br><br>
+          <label for="promoCode">Promo Code:</label>
+          <input type="text" id="promoCode" name="promoCode">
+    
+          <label for="loyaltyPoints">Loyalty Points:</label>
+          <input type="text" id="loyaltyPoints" name="loyaltyPoints" readonly>
+    
+          <div id="confirmation" style="display: none;">
+            <h2>Booking Confirmed!</h2>
+            <div id="currentBookingDetails"></div>
+            <p id="currentBookingCost"></p>
+            <div id="totalCost"></div>
+          </div>
+          
+          <button type="button" onclick="bookNow()">Book Now</button>
+          <button type="button" onclick="bookAdventure()">Book Adventure</button>
+          <button type="button" onclick="addToFavorites()">Add to Favorites</button>
+          <button type="button" onclick="loadFavorites()">Load Favorites</button>
+    
+          <section id="favoritesSection" style="display: none;">
+            <h2>Favorites</h2>
+            <div id="favoritesDetails"></div>
+          </section>
+    
+          <button type="button" onclick="checkLoyalty()">Check Loyalty</button>
+    
+        </fieldset>
+    
+      </form>
+    </div>
+    <br>
+    <div class="fade-in">
+        <footer class="footer">
+            <div class="footer-content">
+              <div class="footer-left">
+                <br>
+                <h4>CONTACT US</h4>
+                <div class="contact-info">
+                <p><img src="Images/Phone.png"> +94 (0) 11 123 4567
+                <br><img src="Images/Mail.png"> info@ophelialodgings.com</p>
+                </div>
+              </div>
+              <div class="footer-right">
+                <div class="subscribe-form">
+                <h4>SUBSCRIBE TO THE NEWSLETTER!</h4>
+                <a href="https://forms.google.com"><button class="button">SUBSCRIBE</button></a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2023 Ophelia Lodgings. All rights reserved.</p>
+            </div>
+          </footer>
+    </div>
+
+    <div class="fade-in">
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html"><img src="Images/hotel.png" alt="Home Icon"><span>Home</span></a></li>
+                <li><a href="branches.html"><img src="Images/map-travel.png" alt="Branches Icon"><span>Hotel Branches</span></a></li>
+                <li><a href="adventures.html"><img src="Images/hiking.png" alt="Adventure Icon"><span>Adventures</span></a></li>
+                <li><a href="restaurants.html"><img src="Images/tray.png" alt="Restaurant Icon"><span>Restaurants</span></a>
+                    <ul>
+                        <li><a href="e2.html"><img src="Images/conference.png" alt="Event 2 Icon"><span>Corporate Events</span></a></li>
+                        <li><a href="e1.html"><img src="Images/cheers.png" alt="Event 1 Icon"><span>Social Affairs</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="hotel-booking.html"><img src="Images/booking.png" alt="Hotel booking Icon"><span>Hotel Booking</span></a></li>
+            </ul>
+        </div>
+    </div>    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Scripts/main.js"></script>
+</body>
+</html>
